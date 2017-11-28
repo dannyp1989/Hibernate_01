@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import pl.coderslab.dao.BookDao;
 import pl.coderslab.dao.PublisherDao;
+import pl.coderslab.entity.Author;
 import pl.coderslab.entity.Book;
 import pl.coderslab.entity.Publisher;
 
@@ -42,7 +43,7 @@ public class PublisherController {
 		publisherDao.delete(publisher);
 		return "redirect:../";
 	}
-	
+
 	@RequestMapping("/edit/{id}")
 	public String editPublisherForm(@PathVariable long id, Model model) {
 		Publisher publisher = publisherDao.loadById(id);
