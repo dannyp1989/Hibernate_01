@@ -29,6 +29,14 @@ public class BookDao {
 		return list;
 	}
 	
+	public List<Book> getRatingList(int rating) {
+		final String QUERY= "SELECT b FROM Book b where rating>:rating";
+		Query query = entityManager.createQuery(QUERY);
+		query.setParameter("rating", rating);
+		List<Book> list = query.getResultList();
+		return list;
+	}
+	
 	public Book loadById(long id) {
 		return entityManager.find(Book.class, id);
 	}

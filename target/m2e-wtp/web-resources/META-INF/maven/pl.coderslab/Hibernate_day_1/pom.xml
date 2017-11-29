@@ -1,12 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>pl.coderslab</groupId>
-  <artifactId>Hibernate_day_1</artifactId>
-  <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>Hibernate_day_1 Maven Webapp</name>
-  <url>http://maven.apache.org</url>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>pl.coderslab</groupId>
+	<artifactId>Hibernate_day_1</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Hibernate_day_1 Maven Webapp</name>
+	<url>http://maven.apache.org</url>
 	<properties>
 		<org.springframework-version>4.3.7.RELEASE
 		</org.springframework-version>
@@ -60,9 +60,8 @@
 			<artifactId>spring-data-jpa</artifactId>
 			<version>1.11.1.RELEASE</version>
 		</dependency>
-		
 	</dependencies>
-  <build>
-    <finalName>Hibernate_day_1</finalName>
-  </build>
+	<build>
+		<finalName>Hibernate_day_1</finalName>
+	</build>
 </project>

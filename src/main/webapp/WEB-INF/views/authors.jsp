@@ -51,6 +51,7 @@
 	<input type="submit" value='Add'>
 	</fieldset>
 	</form>
-	
+		<hr>
+	<h1><a href='<c:url value="/"/>'>Go back!</a></h1>
 </body>
 </html>

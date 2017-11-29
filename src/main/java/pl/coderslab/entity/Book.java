@@ -31,6 +31,9 @@ public class Book {
 	private Publisher publisher;
 	
 	
+	public void setId(long id) {
+		this.id = id;
+	}
 	
 	public Author getAuthor() {
 		return author;

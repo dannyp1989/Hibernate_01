@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import pl.coderslab.dao.AuthorDao;
@@ -15,6 +17,7 @@ import pl.coderslab.dao.PublisherDao;
 import pl.coderslab.entity.Author;
 import pl.coderslab.entity.Book;
 import pl.coderslab.entity.Publisher;
+import pl.coderslab.repository.PersonRepository;
 
 @Controller
 @RequestMapping("/books")
@@ -32,26 +35,30 @@ public class BookController {
 		List<Book> list = bookDao.loadAllBooks();
 		List<Author> listA = authorDao.loadAll();
 		List<Publisher> listP = publisherDao.loadAll();
+		Book book = new Book();
 		model.addAttribute("authors", listA);
 		model.addAttribute("publishers", listP);
+		model.addAttribute("book", book);
 		
 		model.addAttribute("books", list);
 		return "books";
 	}
 	
-	@RequestMapping("/add")
-	public String addBook(@RequestParam String title, @RequestParam String description,
-			@RequestParam double rating,@RequestParam long author_id, @RequestParam long publisher_id) {
-		Book book = new Book();
-		book.setTitle(title);
-		book.setDescription(description);
-		book.setRating(rating);
-		Author author = authorDao.loadById(author_id);
-		Publisher publisher = publisherDao.loadById(publisher_id);
-		book.setAuthor(author);
-		book.setPublisher(publisher);
+	@RequestMapping(value="", method=RequestMethod.POST)
+	public String addBook(@ModelAttribute Book book) {
+//		public String addBook(@RequestParam String title, @RequestParam String description,
+//				@RequestParam double rating,@RequestParam long author_id, @RequestParam long publisher_id) {
+//		Book book = new Book();
+//		book.setTitle(title);
+//		book.setDescription(description);
+//		book.setRating(rating);
+//		Author author = authorDao.loadById(author_id);
+//		Publisher publisher = publisherDao.loadById(publisher_id);
+//		book.setAuthor(author);
+//		book.setPublisher(publisher);
 		bookDao.saveBook(book);
-		return "redirect:./";
+		return "redirect:/books";
+//		return "redirect:./";
 	}
 	
 	@RequestMapping("/remove/{id}")
